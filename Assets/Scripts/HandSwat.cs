@@ -10,8 +10,9 @@ public class HandSwat : MonoBehaviour
     public float swatDelay;
     public float rotationSpeed;
 
-    public Transform botSwing;
+
     public Transform topSwing;
+    public Transform botSwing;
     //private bool down = Input.GetKeyDown(KeyCode.Space);
 /*  bool held = Input.GetKey(KeyCode.Space);
     bool up = Input.GetKeyUp(KeyCode.Space);
@@ -32,7 +33,13 @@ public class HandSwat : MonoBehaviour
         if(startedSwat){
             var step = rotationSpeed * Time.deltaTime;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, botSwing.rotation, step);
-
+            
+        }
+        if(transform.rotation.x >= botSwing.rotation.x){
+            transform.rotation = topSwing.rotation;
+            Debug.Log("got to bottom");
+            startedSwat = false;
+            swatTimer = 0.0f;
         }
             /*transform.Rotate(Vector3.right * rotationSpeed);
             */
@@ -41,9 +48,9 @@ public class HandSwat : MonoBehaviour
     }
 
     void setSwinging(){
-         if(Input.GetKeyDown(KeyCode.Space) && swatTimer >= swatDelay){
-             startedSwat = true;
-             Debug.Log("setSwinging");
-         }
+        if(Input.GetKeyDown(KeyCode.Space) && swatTimer >= swatDelay){
+            startedSwat = true;
+            Debug.Log("setSwinging");
+        }
     }
 }
