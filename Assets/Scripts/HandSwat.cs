@@ -53,4 +53,13 @@ public class HandSwat : MonoBehaviour
             Debug.Log("setSwinging");
         }
     }
+
+    void OnCollisionEnter(Collision col){
+        Debug.Log("Collided");
+        if(col.gameObject.CompareTag("Plane")){
+            Destroy(col.gameObject);
+        }
+
+    }
+
 }
