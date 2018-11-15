@@ -18,7 +18,7 @@ public class getHit : MonoBehaviour
 
         void OnTriggerEnter(Collider col){
         Debug.Log("got hit");
-        if(col.gameObject.CompareTag("Arm")){
+        if(col.gameObject.CompareTag("Arm")&&OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)){
             Destroy(this.gameObject);
         }
 

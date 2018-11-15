@@ -27,36 +27,43 @@ public class HandSwat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        swatTimer = swatTimer + Time.deltaTime;
-        setSwinging();
-
+        //swatTimer = swatTimer + Time.deltaTime;
+        //setSwinging();
+/*
         if(startedSwat){
             var step = rotationSpeed * Time.deltaTime;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, botSwing.rotation, step);
             
         }
+  
+  
         if(transform.rotation.x >= botSwing.rotation.x){
             transform.rotation = topSwing.rotation;
             Debug.Log("got to bottom");
             startedSwat = false;
             swatTimer = 0.0f;
         }
+  */
             /*transform.Rotate(Vector3.right * rotationSpeed);
             */
             
     
     }
-
+/* 
     void setSwinging(){
-        if(Input.GetKeyDown(KeyCode.Space) && swatTimer >= swatDelay){
+       // if(Input.GetKeyDown(KeyCode.Space) && swatTimer >= swatDelay){
+            	
+        if(OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger)&& swatTimer >= swatDelay){
+
             startedSwat = true;
             Debug.Log("setSwinging");
         }
     }
+*/
 
-    void OnCollisionEnter(Collision col){
+    void OnTriggerEnter(Collider col){
         Debug.Log("Collided");
-        if(col.gameObject.CompareTag("Plane")){
+        if(col.gameObject.CompareTag("Plane") && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)){
             Destroy(col.gameObject);
         }
 
