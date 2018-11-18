@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+//using TMPro;
 
 public class ScoreKeeper : MonoBehaviour {
 
@@ -20,6 +20,6 @@ public class ScoreKeeper : MonoBehaviour {
     public void updateScore()
     {
         score++;
-        this.gameObject.GetComponent<TextMeshProUGUI>().text = "Score: " + score;
+//        this.gameObject.GetComponent<TextMeshProUGUI>().text = "Score: " + score;
     }
 }
