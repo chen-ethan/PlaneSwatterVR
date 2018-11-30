@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class spawnPlane : MonoBehaviour {
 
-
+	public int spawnerID;
 	private static float timer;
 	public float spawnDelay;
 	public Rigidbody plane; 
