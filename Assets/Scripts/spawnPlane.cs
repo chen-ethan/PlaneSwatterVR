@@ -16,15 +16,18 @@ public class spawnPlane : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		timer += Time.deltaTime;
-
+/*
 		if(timer >= spawnDelay){
 			//spawn plane
-			Rigidbody clone;
-			clone = Instantiate(plane,this.transform.position,this.transform.rotation);
-
-
-			timer = 0.0f;
-
+			spawn();
 		}
+*/
+	}
+
+	public void spawn(){
+		Debug.Log("spawning plane");
+		Rigidbody clone;
+		clone = Instantiate(plane,this.transform.position,this.transform.rotation);
+		timer = 0.0f;
 	}
 }

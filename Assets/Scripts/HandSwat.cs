@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class HandSwat : MonoBehaviour
 {
-    private bool startedSwat; 
-    private float swatTimer;
+ //   private bool startedSwat; 
+ //   private float swatTimer;
 
-    public float swatDelay;
-    public float rotationSpeed;
+  //  public float swatDelay;
+  //  public float rotationSpeed;
 
     public int score;
 
 
-    public Transform topSwing;
-    public Transform botSwing;
+ //   public Transform topSwing;
+  //  public Transform botSwing;
     //private bool down = Input.GetKeyDown(KeyCode.Space);
 /*  bool held = Input.GetKey(KeyCode.Space);
     bool up = Input.GetKeyUp(KeyCode.Space);
@@ -53,7 +53,18 @@ public class HandSwat : MonoBehaviour
             
     
     }
- /*
+
+    void OnTriggerEnter(Collider col){
+        Debug.Log("Collided");
+        if(col.gameObject.CompareTag("Plane")/*  && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)*/){
+            Destroy(col.gameObject);
+            score +=1;
+            Debug.Log("SCORE: " + score);
+        }
+
+    }
+
+     /*
     void setSwinging(){
         if(Input.GetKeyDown(KeyCode.Space) && swatTimer >= swatDelay){
             	
@@ -65,13 +76,5 @@ public class HandSwat : MonoBehaviour
     }
 
 */
-    void OnTriggerEnter(Collider col){
-        Debug.Log("Collided");
-        if(col.gameObject.CompareTag("Plane")/*  && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)*/){
-            Destroy(col.gameObject);
-            score +=1;
-        }
-
-    }
 
 }
