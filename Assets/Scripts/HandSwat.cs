@@ -67,7 +67,7 @@ public class HandSwat : MonoBehaviour
 */
     void OnTriggerEnter(Collider col){
         Debug.Log("Collided");
-        if(col.gameObject.CompareTag("Plane") /* && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)*/){
+        if(col.gameObject.CompareTag("Plane")/*  && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)*/){
             Destroy(col.gameObject);
             score +=1;
         }

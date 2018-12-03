@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/ChoksiScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/EthanScene.unity
     guid: 95116f47ab753ee448eaddb8becbbbc0
+  - enabled: 1
+    path: Assets/Scenes/planeSpawnerTest.unity
+    guid: b4641ada16496b34bb20660224fde156
   m_configObjects: {}
