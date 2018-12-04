@@ -30,7 +30,8 @@ public class TrackEnergy : MonoBehaviour {
 			}
 		}
 
-		if ((!Input.GetKey("space") || lockdown) && transform.localScale.y > minSize){
+		//if ((!Input.GetKey("space") || lockdown) && transform.localScale.y > minSize){
+		if( (!OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || lockdown) && transform.localScale.y > minSize){
 			transform.localScale -= new Vector3(0,growFactor,0);
 			rage = false;
 		}
@@ -41,7 +42,8 @@ public class TrackEnergy : MonoBehaviour {
 					rage = false;
 				}
 			}
-			if((transform.localScale.y <= maxSize) && Input.GetKey("space")){
+			//if((transform.localScale.y <= maxSize) && Input.GetKey("space")){
+			if((transform.localScale.y <= maxSize) && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)){
 				transform.localScale += new Vector3(0,growFactor,0);
 				if(!lockdown){
 					rage = true;

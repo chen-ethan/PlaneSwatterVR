@@ -14,6 +14,8 @@ public class HandSwat : MonoBehaviour
     public int score;
     public GameObject SB;
 
+    public TrackEnergy TE;
+
 
  //   public Transform topSwing;
   //  public Transform botSwing;
@@ -59,7 +61,8 @@ public class HandSwat : MonoBehaviour
 
     void OnTriggerEnter(Collider col){
         Debug.Log("Collided");
-        if(col.gameObject.CompareTag("Plane") && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)){
+        //if(col.gameObject.CompareTag("Plane") && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)){
+        if(col.gameObject.CompareTag("Plane") && TE.rage){
             Destroy(col.gameObject);
             score +=1;
             Debug.Log("SCORE: " + score);
