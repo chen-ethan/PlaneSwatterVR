@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class HandSwat : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class HandSwat : MonoBehaviour
   //  public float rotationSpeed;
 
     public int score;
+    public GameObject SB;
 
 
  //   public Transform topSwing;
@@ -25,6 +27,7 @@ public class HandSwat : MonoBehaviour
     //    startedSwat = false;
       //  swatTimer = 0.0f;
         score = 0;
+        SB = GameObject.Find("Score");
     }
 
     // Update is called once per frame
@@ -56,10 +59,15 @@ public class HandSwat : MonoBehaviour
 
     void OnTriggerEnter(Collider col){
         Debug.Log("Collided");
-        if(col.gameObject.CompareTag("Plane")/*  && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)*/){
+        if(col.gameObject.CompareTag("Plane") && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)){
             Destroy(col.gameObject);
             score +=1;
             Debug.Log("SCORE: " + score);
+            SB.GetComponent<TextMeshProUGUI>().text = "Score: " + score;
+
+            
+            
+            
         }
 
     }

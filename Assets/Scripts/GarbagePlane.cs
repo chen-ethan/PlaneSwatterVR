@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GarbagePlane : MonoBehaviour {
 	public HandSwat HS;
 	// Use this for initialization
+	public GameObject SB;
+
 	void Start () {
-		
+		SB = GameObject.Find("Score");
 	}
 	
 	// Update is called once per frame
@@ -15,10 +18,11 @@ public class GarbagePlane : MonoBehaviour {
 	}
 
 	void OnTriggerExit(Collider col){
-        if(col.gameObject.CompareTag("Plane")/*  && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)*/){
+        if(col.gameObject.CompareTag("Plane")  /* && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)*/){
             Destroy(col.gameObject);
             HS.score -=1;
             Debug.Log("-1 SCORE: " + HS.score);
+			SB.GetComponent<TextMeshProUGUI>().text = "Score: " + HS.score;
         }
 
     }
